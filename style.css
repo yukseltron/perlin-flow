@@ -1,0 +1,56 @@
+:root {
+	font-family: sans-serif;
+}
+
+article {
+	display: flex;
+	justify-content: center;
+}
+section {
+}
+
+form {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+form * {
+	margin-bottom: 0.25rem;
+}
+
+canvas {
+	border: 0.25px solid black;
+	margin-top: 2rem;
+	max-width: 100%;
+}
+
+button {
+	font-size: 1rem;
+	width: 100px;
+	margin-top: 0.5rem;
+	padding: 10px;
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+}
+button:hover {
+	background-color: blue;
+}
+button:active {
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+}
+
+input {
+	width: 50px;
+}
+
+#sketch {
+	display: flex;
+	flex-direction: column;
+}
+
+#sketch:last- {
+	margin: 100px;
+}
