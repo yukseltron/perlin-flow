@@ -9,13 +9,13 @@ let flowField = [];
 let start = false;
 
 function setup() {
-  var button = createButton('Start').parent("sketch");
+  var button = createButton('Start').parent("buttons");
   button.mousePressed(switchStart);
   button.id('switch');
 
-  var reset = createButton('Reset').parent("sketch");
+  var reset = createButton('Reset').parent("buttons");
   reset.mousePressed(resetSketch);
-  
+
   createCanvas(600, 600).parent("sketch");
   zoff = 0;
   scl = 6;

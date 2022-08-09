@@ -19,24 +19,28 @@
     <main>
         <article>
             <section id="sketch">
-                <h1>Perlin Flow Noise</h1>
-                <form id="options">
-                    <div>
-                        <input type="color" id="back" name="back"
-                               value="#ffffff">
-                        <label for="back">Background</label>
+                <h1>Perlin Flow Noise Generator</h1>
+                <div id="options">
+                    <form>
+                        <div>
+                            <input type="color" id="back" name="back"
+                                   value="#ffffff">
+                            <label for="back">Background</label>
+                        </div>
+                        <div>
+                            <input type="color" id="fore" name="fore"
+                                    value="#000000">
+                            <label for="fore">Lines</label>
+                        </div>
+                        <div>
+                            <input type="number" min="0" max="9" id="speed" name="speed"
+                                    value="2">
+                            <label for="speed">Distance</label>
+                        </div>
+                    </form>
+                    <div id="buttons">
                     </div>
-                    <div>
-                        <input type="color" id="fore" name="fore"
-                                value="#000000">
-                        <label for="fore">Lines</label>
-                    </div>
-                    <div>
-                        <input type="number" min="0" max="9" id="speed" name="speed"
-                                value="2">
-                        <label for="speed">Distance</label>
-                    </div>
-                </form>
+                </div>
             </section>
         </article>
     </main>
