@@ -49,6 +49,16 @@ input {
 	width: 50px;
 }
 
+footer {
+	display: flex;
+	justify-content: center;
+}
+footer p {
+	font-size: 90%;
+	margin-top: 10rem;
+}
+
+
 #sketch {
 	display: flex;
 	flex-direction: column;
