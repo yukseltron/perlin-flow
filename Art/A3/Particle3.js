@@ -3,7 +3,7 @@ function Particle() {
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(random(width), random(height));
   this.acc = createVector(random(width), random(height));
-  this.maxspeed = 3;
+  this.maxspeed = random(2,3);
 
   this.prevPos = this.pos;
 
