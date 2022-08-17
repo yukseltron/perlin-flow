@@ -58,6 +58,18 @@ footer p {
 	margin-top: 10rem;
 }
 
+.back * {
+	color: white;
+	font-size: 150%;
+	font-weight: 200;
+	text-underline-offset: 5px;
+	text-decoration-thickness: 1px;
+	display: inline-block;
+}
+.back *:hover {
+	text-decoration: overline;
+	text-decoration-thickness: 1px;
+}
 
 #sketch {
 	display: flex;
