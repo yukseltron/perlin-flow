@@ -33,7 +33,6 @@ function setParticles() {
     for (let i = 0; i < times; i++) {
       particles[i] = new Particle();
     }
-    console.log(particles);
 }
 
 function resetSketch() {

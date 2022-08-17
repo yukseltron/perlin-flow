@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -13,16 +16,31 @@
   </head>
   <body>
     <style>
+        html {
+            position:relative;
+        }
         body {
             width: 80%;
             margin: auto;
+            font-size: 110%;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
         h1 {
-            font-size: 10vmax;
-            text-align:
+            font-size: 500%;
+            text-align: center;
         }
+        h2 {
+            font-weight: 200;
+        }
+
         a {
             text-decoration: none;
+            font-size: 120%;
             border-top: 1px solid white;
             border-left: 1px solid white;
             border-right: 1px solid white;
@@ -37,22 +55,68 @@
         }
         a:last-child {
             border-bottom: 1px solid white;
+            margin-bottom: 50%;
+        }
+
+        #contact {
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            text-decoration: underline;
         }
     </style>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <main>
+        <script>
+            let count = 1000;
+            window.addEventListener('load', () => {
+              loop('.-..:-_:');
+              if (count === 0) {
+                  count = 10;
+                  loop('...:-_:');
+              }
+            });
+
+            const sleep = (milliseconds) => {
+              return new Promise(resolve => setTimeout(resolve, milliseconds))
+            }
+
+            const loop = async (text) => {
+              for (let i = 0 ; i < count; i++) {
+              //code before sleep goes here, just change the time below in milliseconds
+               await sleep(200)
+               let hd = document.querySelector('#headline');
+               let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
+               hd.innerHTML = shuffled;
+              //code after sleep goes here
+                }
+              }
+        </script>
         <article>
             <section id="sketch">
-                <h1>Generative Art Projects</h1>
-                <a href="Art/A1/perlindust.html"># 1</a>
-                <a href="Art/A2/perlincables.html"># 2</a>
-                <a href="Art/A3/perlin.html"># 3</a>
+                <h>
+                    <h1 id="headline">....</h1>
+                    <h2>Generative Art Projects</h2>
+                </h>
+                <a href="Art/A1/perlindust.html"># 1 Dust</a>
+                <a href="Art/A2/perlincables.html"># 2 Cables</a>
+                <a href="Art/A3/perlin.html"># 3 Flower</a>
+                <a href="Art/A1/perlindust.html"># 1 Dust</a>
+                <a href="Art/A2/perlincables.html"># 2 Cables</a>
+                <a href="Art/A3/perlin.html"># 3 Flower</a>
+                <a href="Art/A1/perlindust.html"># 1 Dust</a>
+                <a href="Art/A2/perlincables.html"># 2 Cables</a>
+                <a href="Art/A3/perlin.html"># 3 Flower</a>
+                <a href="Art/A1/perlindust.html"># 1 Dust</a>
+                <a href="Art/A2/perlincables.html"># 2 Cables</a>
+                <a href="Art/A3/perlin.html"># 3 Flower</a>
             </section>
         </article>
     </main>
     <footer>
         <p>
-            12.09.2022
+            12.09.2022 / <a id="contact" href="https://yooksel.com/">Contact</a>
         </p>
     </footer>
   </body>
