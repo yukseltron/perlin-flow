@@ -77,7 +77,7 @@ function events(){
 
 function draw() {
   let yoff = 0;
-
+          noiseSeed(random(99));
   if (start == true) {
       for (let y = 0; y < rows; y++) {
         let xoff = 0;
@@ -91,7 +91,7 @@ function draw() {
 
         }
         yoff += inc;
-        zoff += random(0,0.0002);
+        zoff += 1;
       }
 
       for (let i = 0; i < particles.length; i++) {

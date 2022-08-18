@@ -63,6 +63,11 @@ footer p {
 	font-size: 90%;
 }
 
+a:focus {
+	background-color: blue;
+	outline-offset: 0;
+}
+
 .back * {
 	color: white;
 	font-size: 150%;
@@ -89,4 +94,11 @@ footer p {
 #buttons {
 	display: flex;
 	flex-direction: column;
+}
+
+#contact {
+	outline: none;
+}
+#contact:active {
+	text-decoration: overline;
 }

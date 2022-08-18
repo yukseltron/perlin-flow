@@ -1,9 +1,10 @@
 
 function Particle() {
-  this.pos = createVector(random(width), random(height));
-  this.vel = createVector(random(width), random(height));
-  this.acc = createVector(random(width), random(height));
-  this.maxspeed = random(2,3);
+  this.pos = createVector(300, 300);
+  this.inv = createVector(random(height), random(width));
+  this.vel = createVector(random(height), random(width));
+  this.acc = createVector(random(height), random(width));
+  this.maxspeed = 3;
 
   this.prevPos = this.pos;
 
@@ -16,9 +17,9 @@ function Particle() {
   }
 
   this.update = function() {
-    this.vel.add(this.acc);
+    this.vel.add(random(-5,5));
     this.vel.limit(this.maxspeed);
-    this.pos.add(this.vel);
+    this.pos.add(random(-5,5), random(-5,5));
     this.acc.mult(0);
   }
 
@@ -29,11 +30,13 @@ function Particle() {
   this.show = function() {
     let x = this.pos.x;
     let y = this.pos.y;
-    //bezier(x*2, y, x/2, y/2, y, x, 2*y, 2*x);
-    //bezier(x/x, y+2, x, y/y, x/2, y/2, x, y);
-    bezier(x, y, 300, 300, y, x, 300, 300, 1, 1, 300, 300);
+    let h = this.inv.y;
+    let w = this.inv.y;
+
+    arc(x, y, w, h, PI, 0);
+    arc(y, x, h, w, 0, PI);
+    strokeWeight(0.2);
     noFill();
-    //point(this.pos.x, this.pos.y);
     this.updatePrev();
   }
 
