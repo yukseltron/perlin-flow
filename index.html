@@ -42,22 +42,15 @@
         a {
             text-decoration: none;
             font-size: 120%;
-            border-top: 1px solid white;
-            border-left: 1px solid white;
-            border-right: 1px solid white;
+            outline: 1px solid white;
+            padding: 20px 0px 20px 20px;
             color: white;
-            padding: 2vmax;
-            padding-right: 50vmin;
-            transition: background-color 0.5s;
+            transition: background-color 0.5s
         }
         a:hover {
             background-color: white;
             color: black;
             transition: background-color 0.5s;
-        }
-        a:last-child {
-            border-bottom: 1px solid white;
-            margin-bottom: 50px;
         }
 
         #contact {
@@ -70,41 +63,16 @@
     </style>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <main>
-        <script>
-            let count = 1000;
-            window.addEventListener('load', () => {
-              loop('.-..:-_:');
-              if (count === 0) {
-                  count = 10;
-                  loop('...:-_:');
-              }
-            });
-
-            const sleep = (milliseconds) => {
-              return new Promise(resolve => setTimeout(resolve, milliseconds))
-            }
-
-            const loop = async (text) => {
-              for (let i = 0 ; i < count; i++) {
-              //code before sleep goes here, just change the time below in milliseconds
-               await sleep(200)
-               let hd = document.querySelector('#headline');
-               let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
-               hd.innerHTML = shuffled;
-              //code after sleep goes here
-                }
-              }
-        </script>
         <article>
             <section id="sketch">
                 <h>
                     <h1 id="headline">....</h1>
                     <h2>Generative Art Projects</h2>
                 </h>
-                <a href="Art/A1/dust.html">Dust</a>
-                <a href="Art/A2/cables.html">Cables</a>
-                <a href="Art/A3/flower.html">Flower</a>
-                <a href="Art/A4/perlin.html">Perlin</a>
+                <a id="Dust" class="link" href="Art/A1/dust.html">Dust</a>
+                <a id="Cables" class="link" href="Art/A2/cables.html">Cables</a>
+                <a id="Flower" class="link" href="Art/A3/flower.html">Flower</a>
+                <a id="Perlin" class="link" href="Art/A4/perlin.html">Perlin</a>
             </section>
         </article>
     </main>
@@ -113,5 +81,39 @@
             2022 / <a id="contact" href="https://yooksel.com/">Contact</a>
         </p>
     </footer>
+    <script>
+        let count = 1000;
+        window.addEventListener('load', () => {
+          loop('.-..:-_:', '#headline', count);
+          if (count === 0) {
+              count = 10;
+              loop('...:-_:', '#headline', count);
+          }
+        });
+
+        let links = document.getElementsByClassName('link');
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener('mouseover', (event) => {
+                loop(links[i].innerHTML + ".-.:", "#" + links[i].id, 5);
+            });
+        };
+
+        const sleep = (milliseconds) => {
+          return new Promise(resolve => setTimeout(resolve, milliseconds))
+        }
+
+        const loop = async (text, element, count) => {
+          let hd = document.querySelector(element);
+          for (let i = 0 ; i < count; i++) {
+          //code before sleep goes here, just change the time below in milliseconds
+           await sleep(200)
+           //console.log(hd);
+           let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
+           hd.innerHTML = shuffled;
+          //code after sleep goes here
+            }
+            hd.innerHTML = hd.id;
+          }
+    </script>
   </body>
 </html>
