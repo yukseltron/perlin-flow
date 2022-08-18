@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Perlin Noise Flow"
+    />
+    <title>Gen Art</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <main>
+        <article>
+            <section id="sketch">
+                <h1 class="back"><a href="../../index.html">Dust</a></h1>
+                <div id="options">
+                    <form>
+                        <div>
+                            <input type="color" id="back" name="back"
+                                   value="#ffffff">
+                            <label for="back">Background</label>
+                        </div>
+                        <div>
+                            <input type="color" id="fore" name="fore"
+                                    value="#000000">
+                            <label for="fore">Lines</label>
+                        </div>
+                        <div>
+                            <input type="number" min="0" max="9" id="speed" name="speed"
+                                    value="2">
+                            <label for="speed">Distance</label>
+                        </div>
+                    </form>
+                    <div id="buttons">
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    <script src="Dust.js"></script>
+    <script src="Particle.js"></script>
+  </body>
+</html>

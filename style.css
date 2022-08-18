@@ -52,10 +52,10 @@ input {
 footer {
 	display: flex;
 	justify-content: center;
+	height: 0;
 }
 footer p {
 	font-size: 90%;
-	margin-top: 10rem;
 }
 
 .back * {
