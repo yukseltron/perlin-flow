@@ -1,10 +1,9 @@
 
 function Particle() {
-  this.pos = createVector(300, 300);
-  this.inv = createVector(random(height), random(width));
-  this.vel = createVector(random(height), random(width));
-  this.acc = createVector(random(height), random(width));
-  this.maxspeed = 3;
+  this.pos = createVector(random(width), random(height));
+  this.vel = createVector(random(width), random(height));
+  this.acc = createVector(random(width), random(height));
+  this.maxspeed = 2;
 
   this.prevPos = this.pos;
 
@@ -14,6 +13,7 @@ function Particle() {
     let index = x + y * cols;
     let force = vectors[index];
     this.applyForce(force);
+
   }
 
   this.update = function() {
@@ -28,15 +28,11 @@ function Particle() {
   }
 
   this.show = function() {
-    let x = this.pos.x;
-    let y = this.pos.y;
-    let h = this.inv.y;
-    let w = this.inv.y;
-
-    arc(x, y, w, h, PI, 0);
-    arc(y, x, h, w, 0, PI);
-    strokeWeight(0.2);
+    strokeWeight(0.1);
+    let r = random(10,100);
+    arc(this.pos.x, this.pos.y, r, r, TWO_PI, 0);
     noFill();
+    //point(this.pos.x, this.pos.y);
     this.updatePrev();
   }
 

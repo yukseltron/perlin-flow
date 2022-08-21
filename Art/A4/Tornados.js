@@ -8,6 +8,7 @@ let particles = [];
 let flowField = [];
 let start = false;
 
+
 function setup() {
   var button = createButton('Start').parent("buttons");
   button.mousePressed(switchStart);
@@ -67,6 +68,7 @@ function events(){
     document.getElementById("fore").addEventListener('change', (e) => {
         let color = e.target.value;
         stroke(color);
+        console.log(color);
     });
 
     document.getElementById("fill").addEventListener('change', (e) => {
@@ -77,23 +79,21 @@ function events(){
 
 function draw() {
   let yoff = 0;
-          noiseSeed(random(99));
+
   if (start == true) {
       for (let y = 0; y < rows; y++) {
         let xoff = 0;
         for (let x = 0; x < cols; x++) {
           let index = (x + y * cols);
-          let angle = noise(xoff, yoff, zoff) * TWO_PI;
+          let angle = noise(xoff, yoff, zoff);
           let v = p5.Vector.fromAngle(angle);
           v.setMag(1);
           flowField[index] = v;
           xoff += inc;
-
         }
         yoff += inc;
         zoff += 1;
       }
-
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].edges();
