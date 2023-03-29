@@ -16,7 +16,7 @@ function setup() {
   var reset = createButton('Reset').parent("buttons");
   reset.mousePressed(resetSketch);
 
-  createCanvas(600, 600).parent("sketch");
+  createCanvas(displayWidth, displayHeight).parent("sketch");
   zoff = 0;
   scl = 6;
   inc = 0.1;

@@ -6,7 +6,7 @@ let zoff;
 let fr;
 let particles = [];
 let flowField = [];
-let start = false;
+let start = true;
 
 
 function setup() {
@@ -17,7 +17,7 @@ function setup() {
   var reset = createButton('Reset').parent("buttons");
   reset.mousePressed(resetSketch);
 
-  createCanvas(600, 600).parent("sketch");
+  createCanvas(displayWidth, displayHeight).parent("sketch");
   zoff = 0;
   scl = 10;
   inc = 0.1;
@@ -79,6 +79,7 @@ function events(){
 
 function draw() {
   let yoff = 0;
+  stroke(random(255), random(255), 0);
 
   if (start == true) {
       for (let y = 0; y < rows; y++) {

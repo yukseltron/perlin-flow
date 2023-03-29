@@ -3,7 +3,7 @@ function Particle() {
   this.pos = createVector(random(width), random(height));
   this.vel = createVector(random(width), random(height));
   this.acc = createVector(random(width), random(height));
-  this.maxspeed = 2;
+  this.maxspeed = 1;
 
   this.prevPos = this.pos;
 
@@ -28,7 +28,7 @@ function Particle() {
   }
 
   this.show = function() {
-    strokeWeight(0.1);
+    strokeWeight(random(5));
     let r = random(10,100);
     arc(this.pos.x, this.pos.y, r, r, TWO_PI, 0);
     noFill();
