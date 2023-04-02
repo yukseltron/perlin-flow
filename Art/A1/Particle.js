@@ -31,10 +31,10 @@ function Particle() {
   }
 
   this.show = function() {
-    strokeWeight(0.75);
+    strokeWeight(document.getElementById("width").value);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     line(this.pos.y, this.pos.x, this.prevPos.y, this.prevPos.x);
-    //point(this.pos.x, this.pos.y);
+    point(this.pos.x, this.pos.y);
     this.updatePrev();
   }
 

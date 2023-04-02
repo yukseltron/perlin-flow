@@ -105,16 +105,14 @@
 
         const loop = async (text, element, count) => {
           let hd = document.querySelector(element);
+          
           for (let i = 0 ; i < count; i++) {
-          //code before sleep goes here, just change the time below in milliseconds
-           await sleep(200)
-           //console.log(hd);
+           await sleep(200);
            let shuffled = text.split('').sort(function(){return 0.5-Math.random()}).join('');
            hd.innerHTML = shuffled;
-          //code after sleep goes here
-            }
-            hd.innerHTML = hd.id;
           }
+          hd.innerHTML = hd.id;
+        }
     </script>
   </body>
 </html>

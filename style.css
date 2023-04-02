@@ -8,23 +8,17 @@ article {
 	display: flex;
 	justify-content: center;
 }
-section {
-}
 
 form {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 100px;
 }
 
 form * {
 	margin-bottom: 0.25rem;
-}
-
-canvas {
-	border: 0.25px solid grey;
-	margin-top: 2rem;
-	max-width: 100%;
-	padding: 1rem;
 }
 
 button {
@@ -47,6 +41,7 @@ button:active {
 
 input {
 	width: 50px;
+	border: none;
 }
 
 main {
@@ -88,12 +83,14 @@ a:focus {
 
 #options {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 100px;
 }
 
 #buttons {
 	display: flex;
-	flex-direction: column;
+	gap: 5px;
 }
 
 #contact {
@@ -101,4 +98,11 @@ a:focus {
 }
 #contact:active {
 	text-decoration: overline;
+}
+
+.menu {
+	position: absolute;
+	background-color: black;
+	width: 100%;
+	padding-left: 50px;
 }
