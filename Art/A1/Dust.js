@@ -6,23 +6,35 @@ let zoff;
 let fr;
 let particles = [];
 let flowField = [];
-let start = false;
+let start = true;
+
+let bg;
+let fg;
+
 
 function setup() {
-  var button = createButton('Start').parent("buttons");
+  var button = createButton('Stop').parent("buttons");
   button.mousePressed(switchStart);
   button.id('switch');
 
   var reset = createButton('Reset').parent("buttons");
   reset.mousePressed(resetSketch);
 
+  var sprinkle = createButton('Sprinkle').parent("buttons");
+  sprinkle.mousePressed(sprinkleSketch);
+
+  var randomize= createButton('Random').parent("buttons");
+  randomize.mousePressed(randomizeSketch);
+  randomize.id('randomize');
+
+
   createCanvas(displayWidth, displayHeight).parent("sketch");
-  zoff = 0;
-  scl = 6;
-  inc = 0.1;
-  cols = floor(width / scl);
-  rows = floor(height / scl);
-  background(document.getElementById("back").value);
+  sprinkleSketch();
+
+  bg = document.getElementById("background").value;
+  fg = document.getElementById("foreground").value;
+  background(bg);
+  stroke(fg);
   setParticles();
 }
 
@@ -36,15 +48,41 @@ function setParticles() {
 }
 
 function resetSketch() {
-    zoff = 0;
-    scl = 6;
-    inc = 0.1;
-    cols = floor(width / scl);
-    rows = floor(height / scl);
-    setParticles();
-    background(document.getElementById("back").value);
-    stroke(document.getElementById("fore").value);
+    sprinkleSketch();
+    background(document.getElementById("background").value);
+    stroke(document.getElementById("foreground").value);
 }
+
+function sprinkleSketch() {
+  zoff = 0;
+  scl = 6;
+  inc = 0.1;
+  cols = floor(width / scl);
+  rows = floor(height / scl);
+  setParticles();
+}
+
+function randomizeSketch() {
+  randomForegroundSketch();
+  randomBackgroundSketch();
+}
+
+function randomForegroundSketch() {
+  const r = random(255);
+  const g = random(255);
+  const b = random(255);
+  stroke(r,g,b)
+  document.getElementById("randomize").style.color = `rgb(${r},${g},${b})`;
+}
+
+function randomBackgroundSketch() {
+  const r = random(255);
+  const g = random(255);
+  const b = random(255);
+  background(r,g,b)
+  document.getElementById("randomize").style.backgroundColor = `rgb(${r},${g},${b})`;
+}
+
 
 function switchStart() {
     if (start === true) {
@@ -57,12 +95,12 @@ function switchStart() {
 }
 
 function events(){
-    document.getElementById("back").addEventListener('change', (e) => {
+    document.getElementById("background").addEventListener('change', (e) => {
         let color = e.target.value;
         background(color);
     });
 
-    document.getElementById("fore").addEventListener('change', (e) => {
+    document.getElementById("foreground").addEventListener('change', (e) => {
         let color = e.target.value;
         stroke(color);
     });
