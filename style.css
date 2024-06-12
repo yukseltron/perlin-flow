@@ -14,6 +14,7 @@ form {
 	margin-bottom: 1rem;
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 100px;
 }
 
@@ -85,12 +86,14 @@ a:focus {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: 100px;
 }
 
 #buttons {
 	display: flex;
 	gap: 5px;
+	margin-bottom: 5px;
 }
 
 #contact {
@@ -105,4 +108,20 @@ a:focus {
 	background-color: black;
 	width: 100%;
 	padding-left: 50px;
+}
+
+/* write out a media query for mobile to adjust the #options and #buttons */
+@media (max-width: 800px) {
+	form {
+		gap: 20px;
+	}
+	#options {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+	#buttons {
+		flex-direction: column;
+		margin-bottom: 50px;
+	}
 }

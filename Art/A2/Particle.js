@@ -29,8 +29,13 @@ function Particle() {
 
   this.show = function() {
     strokeWeight(1);
-    rect(this.pos.x, this.pos.y, 10, 10);
+    //stroke(random(255), random(255), random(255));
+    //rect(this.pos.x, this.pos.y, random(20), random(20));
+    //rect(this.pos.x, this.pos.y, 100, random(10));
+    //ellipse(this.pos.x, this.pos.y, 10);
+    //ellipse(this.pos.x, this.pos.y, 1);
     //point(this.pos.x, this.pos.y);
+    rect(this.pos.x, this.pos.y, 10, 10);
     this.updatePrev();
   }
 
